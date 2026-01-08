@@ -6,39 +6,19 @@ A Python tool that takes a PowerWorld output file and allows users to modify bus
 
 ### Single OPF Analysis
 
-Run optimal power flow calculations for specific load scenarios to determine locational marginal prices (LMPs) at each bus in the system. This feature allows you to:
-
-- **Modify loads at specific buses**: Set exact load values (in MW) at one or more buses to analyze how different demand levels affect pricing
-- **Absolute or delta-based changes**: Specify either absolute load values or incremental changes from the current base case
-- **Comprehensive bus-level results**: Extract LMPs ($/MWh), voltage magnitudes (per unit), voltage angles (degrees), and active/reactive power flows for every bus
-- **Generator dispatch information**: View optimal generator outputs and costs for the solved scenario
-- **Automatic result saving**: Results are automatically saved to text files with descriptive names that encode the load configuration
-
-This is ideal for analyzing specific "what-if" scenarios, such as understanding how LMPs change when a particular load center increases or decreases its demand, or evaluating the impact of new load connections at specific locations.
+Run optimal power flow calculations for specific load scenarios to determine locational marginal prices (LMPs) at each bus. Modify loads at specific buses using absolute values or incremental changes from the base case. Results include LMPs, voltages, angles, and power flows for all buses, automatically saved to text files. Ideal for analyzing "what-if" scenarios and evaluating the impact of load changes at specific locations.
 
 ### Multiple Load Scenarios
 
-Automatically iterate through ranges of load values to analyze LMP sensitivity and create comprehensive pricing curves. This feature enables:
+Automatically iterate through ranges of load values to analyze LMP sensitivity and create pricing curves. Define independent load ranges and step sizes for multiple buses simultaneously, with batch processing that runs OPF calculations across all combinations. All scenarios are saved in a consolidated output file for easy comparison. Perfect for creating LMP vs. load curves, identifying critical pricing thresholds, and analyzing transmission congestion patterns.
 
-- **Parametric load sweeps**: Define start values, end values, and step sizes for multiple buses simultaneously
-- **Independent load ranges**: Each bus can have its own unique load range and step size, allowing for flexible sensitivity analysis
-- **Batch processing**: Automatically runs OPF calculations for all combinations of load values across the specified ranges
-- **Sensitivity analysis**: Identify how LMPs respond to load changes, helping to understand congestion patterns and marginal cost variations
-- **Consolidated output**: All scenarios are saved in a single output file, making it easy to compare LMPs across different load levels
+## Setup
 
-This is perfect for creating LMP vs. load curves, identifying critical load levels where pricing changes significantly, analyzing transmission congestion patterns, or performing economic studies that require evaluating multiple demand scenarios efficiently.
-
-
-### Setup
-
-1. Clone this repository:
 ```bash
 git clone https://github.com/wcolglazier/LMP_Toolkit.git
 cd LMP_Toolkit
 pip install -r requirements.txt
 ```
-
-
 
 ## Usage
 
@@ -103,24 +83,20 @@ Or modify the `multiple.py` file directly with your desired configuration.
 ### Output
 
 Results are automatically saved to text files:
+
 - Single runs: `opf_single_b{bus}_{load}MW.txt` or `opf_single_basecase.txt`
 - Multiple runs: `opf_loop_b{bus}_{start}to{end}MW.txt`
 
 Each output file contains:
+
 - Load configuration for the scenario
 - LMP values ($/MWh) for each bus in the system
-
-
-
-
 
 ## Input File Format
 
 The tool expects Matpower case files (`.m` format) containing:
+
 - Bus data (bus numbers, types, loads, voltages)
 - Generator data (generation limits, costs)
 - Branch data (transmission line parameters)
 - Generator cost data
-
-
-
