@@ -89,10 +89,10 @@ data_file = "data.m"
 print_current_loads(file_path=data_file)
 
 # Configuration - modify these values
-bus_numbers = [5, 3]                  # Buses to modify
-load_starts = [40, 20]                # Starting load values (MW)
-load_ends = [50, 30]                  # Ending load values (MW)
-load_step_sizes = [1, 1]              # Step size for each bus (MW)
+bus_numbers = [5, 3]             # Buses to modify
+load_starts = [40, 20]           # Starting load values (MW)
+load_ends = [50, 30]             # Ending load values (MW)
+load_step_sizes = [1, 1]         # Step size for each bus (MW)
 
 # Set to True to save results to .txt 
 # Set to False to not save results
