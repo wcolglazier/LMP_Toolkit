@@ -4,11 +4,12 @@ LMP_Toolkit is a Python-based tool for efficiently computing Locational Marginal
 
 The tool allows users to modify electricity demand at individual buses and evaluate how LMPs change in response, using (approximate) Optimal Power Flow (OPF) analysis. Instead of manually running a single OPF case, LMP_Toolkit is designed for large scale scenario analysis, making it easy to run many load variations quickly and consistently.
 
-The resulting outputs are structured text files that are easy to parse and well-suited for:
+The resulting outputs are structured text files that are easy to parse and well suited for:
 
-Data analysis
-Sensitivity studies
-Machine learning workflows
+- Data analysis
+- Sensitivity studies
+- Machine learning pipelines
+- Other downstream modeling workflows
 
 ## Features
 
