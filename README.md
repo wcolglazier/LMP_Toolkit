@@ -42,13 +42,13 @@ print_current_loads(file_path=file_name)
 
 # Configuration - modify these values
 bus_numbers_abs = [5, 3]        # Bus numbers to modify
-new_loads_abs = [60.0, 55.0]   # New load values in MW
+new_loads_abs = [60, 55]   # New load values in MW
 
 # Set to True to save results to .txt 
 # Set to False to not save results
 save_to_file = True
 
-# Run OPF
+# Runs OPF
 run_opf_single(file_path=file_name, save_to_file=save_to_file)
 ```
 
@@ -71,16 +71,16 @@ data_file = "data.m"
 print_current_loads(file_path=data_file)
 
 # Configuration - modify these values
-bus_numbers = [5, 3]                    # Buses to modify
-load_starts = [40.0, 20.0]              # Starting load values (MW)
-load_ends = [50.0, 30.0]                # Ending load values (MW)
-load_step_sizes = [1.0, 1.0]            # Step size for each bus (MW)
+bus_numbers = [5, 3]                  # Buses to modify
+load_starts = [40, 20]                # Starting load values (MW)
+load_ends = [50, 30]                  # Ending load values (MW)
+load_step_sizes = [1, 1]              # Step size for each bus (MW)
 
 # Set to True to save results to .txt 
 # Set to False to not save results
 save_to_file = False
 
-# Run loop
+# Runs OPF
 run_opf_loop(bus_numbers, load_starts, load_ends, load_step_sizes, file_path=data_file, save_to_file=save_to_file)
 ```
 
